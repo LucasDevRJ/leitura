@@ -1,5 +1,7 @@
 package com.github.lucasdevrj.mvc.leitura.controller;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
@@ -9,7 +11,8 @@ public class HelloController { //Classe para adicionar Actions
 	//Action que serve para requisitar uma transação para 
 	//o usuári e retorna uma view (html)
 	@GetMapping("/hello") //para o Spring mapear essa Action e executa-la
-	public String hello() {
+	public String hello(HttpServletRequest request) { //HttpServletRequest para acessar atributos da view
+		request.setAttribute("nome", "World");
 		return "Hello";
 	}
 }

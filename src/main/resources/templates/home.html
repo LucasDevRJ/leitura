@@ -6,17 +6,19 @@
 	</head>
 	
 	<body>
-		<div th:each="livro : ${livros}">
-			<div>Nome: <span th:text="${livro.nome}"></span> </div>
-			<div>Preço: <span th:text="${#numbers.formatDecimal(livro.preco,0,2,'COMMA')}"></span> </div>
-			<div>Data: <span th:text="${livro.data}"></span> </div>
-			<div>Autor: <span th:text="${livro.autor}"></span> </div>
-			<div>Páginas: <span th:text="${livro.paginas}"></span> </div>
-			<div>Categoria: <span th:text="${livro.categoria}"></span> </div>
-			<div>Descrição: <span th:text="${livro.descricao}"></span> </div>
-			<div>Link: <span th:text="${livro.link}">  </span> </div>
-			
-			<div><img th:src="${livro.linkImagem}" src=""></div>
+		<div class="container">
+			<div class="card" th:each="livro : ${livros}">
+				<div>Nome: <span th:text="${livro.nome}"></span> </div>
+				<div>Preço: <span th:text="${#numbers.formatDecimal(livro.preco,0,2,'COMMA')}"></span> </div>
+				<div>Data: <span th:text="${livro.data}"></span> </div>
+				<div>Autor: <span th:text="${livro.autor}"></span> </div>
+				<div>Páginas: <span th:text="${livro.paginas}"></span> </div>
+				<div>Categoria: <span th:text="${livro.categoria}"></span> </div>
+				<div>Descrição: <span th:text="${livro.descricao}"></span> </div>
+				<div>Link: <span th:text="${livro.link}">  </span> </div>
+				
+				<div><img th:src="${livro.linkImagem}" src=""></div>
+			</div>
 		</div>
 	</body>
 </html>

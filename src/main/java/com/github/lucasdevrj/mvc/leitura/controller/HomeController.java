@@ -27,7 +27,7 @@ public class HomeController {
 		List<Livro> livros = new ArrayList<Livro>();
 		livros.add(livro);
 		
-		model.addAllAttributes(livros);
+		model.addAttribute("livros", livros);
 		
 		return "/home";
 	}

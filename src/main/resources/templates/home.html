@@ -2,20 +2,21 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>Leitura</title>
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
 	</head>
 	
 	<body>
-		<div>
-			<div>Nome: <span th:text="nome"></span> </div>
-			<div>Preço: <span th:text="preco"></span> </div>
-			<div>Data: <span th:text="data"></span> </div>
-			<div>Autor: <span th:text="autor"></span> </div>
-			<div>Páginas: <span th:text="paginas"></span> </div>
-			<div>Categoria: <span th:text="categoria"></span> </div>
-			<div>Descrição: <span th:text="descricao"></span> </div>
-			<div>Link: <span th:text="link"></span> </div>
+		<div th:each="livro : ${livros}">
+			<div>Nome: <span th:text="${livro.nome}"></span> </div>
+			<div>Preço: <span th:text="${#numbers.formatDecimal(livro.preco,0,2,'COMMA')}"></span> </div>
+			<div>Data: <span th:text="${livro.data}"></span> </div>
+			<div>Autor: <span th:text="${livro.autor}"></span> </div>
+			<div>Páginas: <span th:text="${livro.paginas}"></span> </div>
+			<div>Categoria: <span th:text="${livro.categoria}"></span> </div>
+			<div>Descrição: <span th:text="${livro.descricao}"></span> </div>
+			<div>Link: <span th:text="${livro.link}">  </span> </div>
 			
-			<div><img src=""></div>
+			<div><img th:src="${livro.linkImagem}" src=""></div>
 		</div>
 	</body>
 </html>

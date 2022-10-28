@@ -7,11 +7,11 @@
 	
 	<body>
 		<div class="container">
-			<div class="card"  th:each="livro : ${livros}">
+			<div class="card text-bg-light mb-3"  th:each="livro : ${livros}">
 				<div class="card-header" th:text="${livro.nome}"></div>
 				<div class="card-body"> 
 						<div class="row">
-							<div class="col-6">
+							<div class="col-12 col-sm-12 col-md-8 mb-3">
 							<div class="fw-semibold">Preço: <span class="fw-normal" th:text="${#numbers.formatDecimal(livro.preco,0,2,'COMMA')}"></span> </div>
 							<div class="fw-semibold">Data: <span class="fw-normal" th:text="${livro.data}"></span> </div>
 							<div class="fw-semibold">Autor: <span class="fw-normal" th:text="${livro.autor}"></span> </div>
@@ -20,9 +20,9 @@
 							<div class="fw-semibold">Descrição: <span class="fw-normal" th:text="${livro.descricao}"></span> </div>
 							<div class="fw-semibold">Link: <span class="fw-normal" th:text="${livro.link}">  </span> </div>
 						</div>
-						<div class="col-6">
+						<div class="col-12 col-sm-12 col-md-4">
 							<div>
-								<img th:src="${livro.linkImagem}" src="">
+								<img class="img-thumbnail" th:src="${livro.linkImagem}" src="">
 							</div>
 						</div>
 					</div>

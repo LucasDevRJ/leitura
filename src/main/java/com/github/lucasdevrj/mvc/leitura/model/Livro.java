@@ -5,6 +5,7 @@ import java.time.LocalDate;
 public class Livro {
 
 	private String nome;
+	private Float preco;
 	private LocalDate data;
 	private String autor;
 	private Integer paginas;
@@ -19,6 +20,14 @@ public class Livro {
 	
 	public void setNome(String nome) {
 		this.nome = nome;
+	}
+	
+	public Float getPreco() {
+		return preco;
+	}
+	
+	public void setPreco(Float preco) {
+		this.preco = preco;
 	}
 	
 	public LocalDate getData() {

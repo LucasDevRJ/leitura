@@ -11,6 +11,8 @@ public class HomeController {
 	@GetMapping("/home") //Action que retorna a view home
 	public String home() {
 		Livro livro = new Livro();
+		livro.setNome("As coisas que você só vê quando desacelera");
+		livro.setPreco(48.00f);
 		
 		return "/home";
 	}

@@ -10,14 +10,22 @@
 			<div class="card"  th:each="livro : ${livros}">
 				<div class="card-header" th:text="${livro.nome}"></div>
 				<div class="card-body"> 
-					<div class="fw-semibold">Preço: <span class="fw-normal" th:text="${#numbers.formatDecimal(livro.preco,0,2,'COMMA')}"></span> </div>
-					<div class="fw-semibold">Data: <span class="fw-normal" th:text="${livro.data}"></span> </div>
-					<div class="fw-semibold">Autor: <span class="fw-normal" th:text="${livro.autor}"></span> </div>
-					<div class="fw-semibold">Páginas: <span class="fw-normal" th:text="${livro.paginas}"></span> </div>
-					<div class="fw-semibold">Categoria: <span class="fw-normal" th:text="${livro.categoria}"></span> </div>
-					<div class="fw-semibold">Descrição: <span class="fw-normal" th:text="${livro.descricao}"></span> </div>
-					<div class="fw-semibold">Link: <span class="fw-normal" th:text="${livro.link}">  </span> </div>
-					<div><img th:src="${livro.linkImagem}" src=""></div>
+						<div class="row">
+							<div class="col-6">
+							<div class="fw-semibold">Preço: <span class="fw-normal" th:text="${#numbers.formatDecimal(livro.preco,0,2,'COMMA')}"></span> </div>
+							<div class="fw-semibold">Data: <span class="fw-normal" th:text="${livro.data}"></span> </div>
+							<div class="fw-semibold">Autor: <span class="fw-normal" th:text="${livro.autor}"></span> </div>
+							<div class="fw-semibold">Páginas: <span class="fw-normal" th:text="${livro.paginas}"></span> </div>
+							<div class="fw-semibold">Categoria: <span class="fw-normal" th:text="${livro.categoria}"></span> </div>
+							<div class="fw-semibold">Descrição: <span class="fw-normal" th:text="${livro.descricao}"></span> </div>
+							<div class="fw-semibold">Link: <span class="fw-normal" th:text="${livro.link}">  </span> </div>
+						</div>
+						<div class="col-6">
+							<div>
+								<img th:src="${livro.linkImagem}" src="">
+							</div>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>

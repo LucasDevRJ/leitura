@@ -20,7 +20,7 @@ public class HomeController {
 	@GetMapping("/home") //Action que retorna a view home
 	public String home(Model model) {
 		
-		List<Livro> livros = livroRepository.exibeLivros();
+		List<Livro> livros = livroRepository.findAll();
 		
 		model.addAttribute("livros", livros);
 		

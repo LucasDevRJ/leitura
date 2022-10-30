@@ -11,14 +11,7 @@ import org.springframework.stereotype.Repository;
 import com.github.lucasdevrj.mvc.leitura.model.Livro;
 
 @Repository //Spring criará a dependência toda vez que for necessário
-public class LivroRepository {
+public interface LivroRepository {
 	
-	@PersistenceContext
-	private EntityManager entityManager;
-
-	public List<Livro> exibeLivros() {
-		Query query = entityManager.createQuery("SELECT l FROM Livro l", Livro.class);
-		List<Livro> livros = query.getResultList();
-		return livros;
-	}
+	public List<Livro> findAll();
 }

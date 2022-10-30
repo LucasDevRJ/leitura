@@ -2,8 +2,19 @@ package com.github.lucasdevrj.mvc.leitura.model;
 
 import java.time.LocalDate;
 
+import javax.annotation.Generated;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
 public class Livro {
 
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Integer id;
+	
 	private String nome;
 	private Float preco;
 	private LocalDate data;

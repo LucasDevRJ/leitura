@@ -37,56 +37,57 @@
 				<h2 class="display-4 text-light">Novo Livro</h2>
 			</div>
 			
-			<form action="">
+			<form action="/livro/novo" method="POST">
 			
 				<div>
-					<div>
+					<div class="mb-3">
 						<label class="form-label" for="nome">Nome:</label>
 						<input class="form-control" type="text" name="nome" placeholder="Nome do livro">
 						<small>Digite o nome do livro</small>
 					</div>
 					
-					<div>
+					<div class="mb-3">
 						<label class="form-label" for="data">Data:</label>
 						<input class="form-control" type="text" name="data" placeholder="Data do livro">
 						<small>Digite a data de lançamento do livro</small>
 					</div>
 					
-					<div>
+					<div class="mb-3">
 						<label class="form-label" for="autor">Autor:</label>
 						<input class="form-control" type="text" name="autor" placeholder="Nomo do autor">
 						<small>Digite o nome do autor do livro</small>
 					</div>
 					
-					<div>
+					<div class="mb-3">
 						<label class="form-label" for="paginas">Páginas:</label>
 						<input class="form-control" type="text" name="paginas" placeholder="Páginas do livro">
 						<small>Digite a quantidade de páginas do livro</small>
 					</div>
 					
-					<div>
+					<div class="mb-3">
 						<label class="form-label" for="categoria">Categoria:</label>
 						<input class="form-control" type="text" name="categoria" placeholder="Categoria do livro">
 						<small>Digite a categoria a qual o livro pertence</small>
 					</div>
 					
-					<div>
+					<div class="mb-3">
 						<label class="form-label" for="link">Link:</label>
 						<input class="form-control" type="text" name="link" placeholder="Link do livro">
 						<small>Copie e cole a URL do livro aqui</small>
 					</div>
 					
-					<div>
+					<div class="mb-3">
 						<label class="form-label" for="descricao">Descrição:</label>
 						<textarea class="form-control" type="text" name="descricao" placeholder="Descrição do livro"></textarea>
 						<small>Digite a descrição do livro</small>
 					</div>
 					
-					<div>
+					<div class="mb-3">
 						<label class="form-label" for="linkImagem">Link da Imagem:</label>
 						<input class="form-control" type="text" name="linkImagem" placeholder="Link da imagem">
 						<small>Copie e cole a URL da imagem do livro aqui</small>
 					</div>
+					<button class="btn btn-primary btn-lg" type="submit">Cadastrar</button>
 				</div>
 			</form>
 		</div>

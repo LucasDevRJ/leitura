@@ -38,9 +38,8 @@
 				<div class="jumbotron text-bg-info p-5 text-center mt-3 mb-3">
 					<h2 class="display-4 text-light">Livros</h2>
 				</div>
-			</div>
-			
-			<nav
+				
+				<nav
 				class="navbar navbar-expand-lg bg-light d-flex justify-content-between mt-3 mb-3">
 				<div class="navbar-nav">
 					<a nav-link active href="">Todos</a> <a nav-link active href="">Aguardando</a>
@@ -50,8 +49,8 @@
 					<button class="btn btn-primary">Novo</button>
 				</a>
 			</nav>
-	
-			<div class="card text-bg-light mb-3" th:each="livro : ${livros}">
+				
+				<div class="card text-bg-light mb-3" th:each="livro : ${livros}">
 				<div class="card-header" th:text="${livro.nome}"></div>
 				<div class="card-body">
 					<div class="row">
@@ -86,6 +85,7 @@
 						</div>
 					</div>
 				</div>
+			</div>
 			</div>
 		</div>
 	</body>

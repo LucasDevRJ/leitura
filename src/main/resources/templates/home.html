@@ -30,34 +30,39 @@
 	<body>
 		<header>
 			<h1>Leitura</h1>
+			<nav class="navbar navbar-expand-lg d-flex">
+				<div class="navbar-nav">
+					<a nav-link active href="">Sobre</a> 
+					<a nav-link active href="">Contato</a>
+					<a nav-link active href="">Livros</a> 
+					<a nav-link active href="">Redes Sociais</a>
+				</div>
+			</nav>
 		</header>
 			
 		<div class="container">
 		
-			<div class="container">
-				<div class="jumbotron text-bg-info p-5 text-center mt-3 mb-3">
-					<h2 class="display-4 text-light">Livros</h2>
-				</div>
-				
-				<nav
-				class="navbar navbar-expand-lg bg-light d-flex justify-content-between mt-3 mb-3">
-				<div class="navbar-nav">
-					<a nav-link active href="">Todos</a> <a nav-link active href="">Aguardando</a>
-					<a nav-link active href="">Aprovado</a> <a nav-link active href="">Entregue</a>
-				</div>
-				<a href="/livro/formulario">
-					<button class="btn btn-primary">Novo</button>
-				</a>
-			</nav>
-				
-				<div class="card text-bg-light mb-3" th:each="livro : ${livros}">
+		<div class="jumbotron text-bg-info p-5 text-center mt-3 mb-3">
+			<h2 class="display-4 text-light">Livros</h2>
+		</div>
+		
+		<nav class="navbar navbar-expand-lg bg-light d-flex justify-content-between mt-3 mb-3">
+			<div class="navbar-nav">
+				<a nav-link active href="">Todos</a> <a nav-link active href="">Aguardando</a>
+				<a nav-link active href="">Aprovado</a> <a nav-link active href="">Entregue</a>
+			</div>
+			<a href="/livro/formulario">
+				<button class="btn btn-primary">Novo</button>
+			</a>
+		</nav>
+		
+		<div class="card text-bg-light mb-4 mt-4" th:each="livro : ${livros}">
 				<div class="card-header" th:text="${livro.nome}"></div>
 				<div class="card-body">
 					<div class="row">
 						<div class="col-12 col-sm-12 col-md-8 mb-3">
 							<div class="fw-semibold">
-								Preço: <span class="fw-normal"
-									th:text="${#numbers.formatDecimal(livro.preco,0,2,'COMMA')}"></span>
+								Preço: <span class="fw-normal" th:text="${#numbers.formatDecimal(livro.preco,0,2,'COMMA')}"></span>
 							</div>
 							<div class="fw-semibold">
 								Data: <span class="fw-normal" th:text="${livro.data}"></span>
@@ -85,7 +90,6 @@
 						</div>
 					</div>
 				</div>
-			</div>
 			</div>
 		</div>
 	</body>

@@ -2,6 +2,8 @@ package com.github.lucasdevrj.mvc.leitura.dto;
 
 import java.time.LocalDate;
 
+import com.github.lucasdevrj.mvc.leitura.model.Livro;
+
 public class RequisicaoNovoLivro {
 
 	private String nome;
@@ -84,5 +86,20 @@ public class RequisicaoNovoLivro {
 	
 	public void setLinkImagem(String linkImagem) {
 		this.linkImagem = linkImagem;
+	}
+
+	public Livro toLivro() {
+		
+		Livro livro = new Livro();
+		livro.setNome(nome);
+		livro.setData(data);
+		livro.setAutor(autor);
+		livro.setPaginas(paginas);
+		livro.setCategoria(categoria);
+		livro.setLink(link);
+		livro.setDescricao(descricao);
+		livro.setLinkImagem(linkImagem);
+		
+		return livro;
 	}
 }

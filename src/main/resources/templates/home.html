@@ -3,33 +3,75 @@
 		<meta charset="UTF-8">
 		<title>Leitura</title>
 		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Fasthand&display=swap" rel="stylesheet">
+		
+		<style type="text/css">
+			h1 {
+				font-family: 'Fasthand', cursive;
+			}
+			
+			.fw-semibold, .fw-normal, .btn-primary {
+				font-family: 'Libre Baskerville', serif;
+			}
+			
+			.navbar-nav {
+				font-family: 'Noto Nastaliq Urdu', serif;
+			}
+			
+			header {
+				padding: 60px;
+				background: #F0FFFF;
+			}
+		</style>
 	</head>
 	
 	<body>
+		<header>
+			<h1>Leitura</h1>
+		</header>
+			
 		<div class="container">
-		
-		<nav class="navbar navbar-expand-lg bg-light d-flex justify-content-between">
-			<div class="navbar-nav">
-				<a nav-link active href="">Todos</a>
-				<a nav-link active href="">Aguardando</a>
-				<a nav-link active href="">Aprovado</a>
-				<a nav-link active href="">Entregue</a>
-			</div>
-			<button class="btn btn-primary">Novo</button>
-		</nav>
-		
-			<div class="card text-bg-light mb-3"  th:each="livro : ${livros}">
+			
+			<nav
+				class="navbar navbar-expand-lg bg-light d-flex justify-content-between mt-5 mb-3">
+				<div class="navbar-nav">
+					<a nav-link active href="">Todos</a> <a nav-link active href="">Aguardando</a>
+					<a nav-link active href="">Aprovado</a> <a nav-link active href="">Entregue</a>
+				</div>
+				<a href="/livro/formulario">
+					<button class="btn btn-primary">Novo</button>
+				</a>
+			</nav>
+	
+			<div class="card text-bg-light mb-3" th:each="livro : ${livros}">
 				<div class="card-header" th:text="${livro.nome}"></div>
-				<div class="card-body"> 
-						<div class="row">
-							<div class="col-12 col-sm-12 col-md-8 mb-3">
-							<div class="fw-semibold">Preço: <span class="fw-normal" th:text="${#numbers.formatDecimal(livro.preco,0,2,'COMMA')}"></span> </div>
-							<div class="fw-semibold">Data: <span class="fw-normal" th:text="${livro.data}"></span> </div>
-							<div class="fw-semibold">Autor: <span class="fw-normal" th:text="${livro.autor}"></span> </div>
-							<div class="fw-semibold">Páginas: <span class="fw-normal" th:text="${livro.paginas}"></span> </div>
-							<div class="fw-semibold">Categoria: <span class="fw-normal" th:text="${livro.categoria}"></span> </div>
-							<div class="fw-semibold">Descrição: <span class="fw-normal" th:text="${livro.descricao}"></span> </div>
-							<div class="fw-semibold">Link: <span class="fw-normal" th:text="${livro.link}">  </span> </div>
+				<div class="card-body">
+					<div class="row">
+						<div class="col-12 col-sm-12 col-md-8 mb-3">
+							<div class="fw-semibold">
+								Preço: <span class="fw-normal"
+									th:text="${#numbers.formatDecimal(livro.preco,0,2,'COMMA')}"></span>
+							</div>
+							<div class="fw-semibold">
+								Data: <span class="fw-normal" th:text="${livro.data}"></span>
+							</div>
+							<div class="fw-semibold">
+								Autor: <span class="fw-normal" th:text="${livro.autor}"></span>
+							</div>
+							<div class="fw-semibold">
+								Páginas: <span class="fw-normal" th:text="${livro.paginas}"></span>
+							</div>
+							<div class="fw-semibold">
+								Categoria: <span class="fw-normal" th:text="${livro.categoria}"></span>
+							</div>
+							<div class="fw-semibold">
+								Descrição: <span class="fw-normal" th:text="${livro.descricao}"></span>
+							</div>
+							<div class="fw-semibold">
+								Link: <span class="fw-normal" th:text="${livro.link}"> </span>
+							</div>
 						</div>
 						<div class="col-12 col-sm-12 col-md-4">
 							<div>

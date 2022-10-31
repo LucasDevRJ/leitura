@@ -7,6 +7,17 @@
 	
 	<body>
 		<div class="container">
+		
+		<nav class="navbar navbar-expand-lg bg-light d-flex justify-content-between">
+			<div class="navbar-nav">
+				<a nav-link active href="">Todos</a>
+				<a nav-link active href="">Aguardando</a>
+				<a nav-link active href="">Aprovado</a>
+				<a nav-link active href="">Entregue</a>
+			</div>
+			<button class="btn btn-primary">Novo</button>
+		</nav>
+		
 			<div class="card text-bg-light mb-3"  th:each="livro : ${livros}">
 				<div class="card-header" th:text="${livro.nome}"></div>
 				<div class="card-body"> 

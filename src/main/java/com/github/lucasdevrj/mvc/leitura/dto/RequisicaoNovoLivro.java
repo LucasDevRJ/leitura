@@ -4,6 +4,7 @@ import java.time.LocalDate;
 
 import javax.validation.constraints.DecimalMin;
 import javax.validation.constraints.Min;
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
 import javax.validation.constraints.Size;
@@ -12,35 +13,35 @@ import com.github.lucasdevrj.mvc.leitura.model.Livro;
 
 public class RequisicaoNovoLivro {
 
-	@NotNull
+	@NotBlank(message = "Digite o nome do livro, por favor!")
 	private String nome;
 	
-	@NotNull
+	@NotNull(message = "Digite o preço do livro, por favor!")
 	@DecimalMin("1.00") 
 	private Float preco;
 	
-	@NotNull 
+	@NotNull()
 	@Past
 	private LocalDate data;
 	
-	@NotNull
+	@NotBlank
 	private String autor;
 	
 	@NotNull
 	@Min(1)
 	private Integer paginas;
 
-	@NotNull
+	@NotBlank
 	private String categoria;
 	
 	@NotNull
 	@Size(min=100, max=1000)
 	private String descricao;
 	
-	@NotNull
+	@NotBlank
 	private String link;
 	
-	@NotNull
+	@NotBlank
 	private String linkImagem;
 	
 	public String getNome() {

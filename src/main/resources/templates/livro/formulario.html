@@ -51,56 +51,65 @@
 			
 						<div class="form-group mb-3">
 							<label class="form-label" for="nome">Nome:</label>
-							<input th:field="*{nome}" class="form-control" type="text" placeholder="Nome do livro">
+							<input th:field="*{nome}" th:errorclass="is-invalid" class="form-control" type="text" placeholder="Nome do livro">
 							<small>Digite o nome do livro</small>
+							<div class="invalid-feedback" th:errors="*{nome}"></div>
 						</div>
 						
 						<div class="form-group mb-3">
-							<label class="form-label" for="nome">Preço:</label>
-							<input th:field="*{preco}" class="form-control" type="text" placeholder="Preço do livro">
+							<label class="form-label" for="preco">Preço:</label>
+							<input th:field="*{preco}" th:errorclass="is-invalid" class="form-control" type="text" placeholder="Preço do livro">
 							<small>Digite o preço do livro</small>
+							<div class="invalid-feedback" th:errors="*{preco}"></div>
 						</div>
 						
 						<div class="form-group mb-3">
 							<label class="form-label" for="data">Data:</label>
-							<input th:field="*{data}" class="form-control" type="text" placeholder="Data do livro">
+							<input th:field="*{data}" th:errorclass="is-invalid" class="form-control" type="text" placeholder="Data do livro">
 							<small>Digite a data de lançamento do livro</small>
+							<div class="invalid-feedback" th:errors="*{data}"></div>
 						</div>
 						
 						<div class="form-group mb-3">
 							<label class="form-label" for="autor">Autor:</label>
-							<input th:field="*{autor}" class="form-control" type="text" placeholder="Nomo do autor">
+							<input th:field="*{autor}" th:errorclass="is-invalid" class="form-control" type="text" placeholder="Nomo do autor">
 							<small>Digite o nome do autor do livro</small>
+							<div class="invalid-feedback" th:errors="*{autor}"></div>
 						</div>
 						
 						<div class="form-group mb-3">
 							<label class="form-label" for="paginas">Páginas:</label>
-							<input th:field="*{paginas}" class="form-control" type="text" placeholder="Páginas do livro">
+							<input th:field="*{paginas}" th:errorclass="is-invalid" class="form-control" type="text" placeholder="Páginas do livro">
 							<small>Digite a quantidade de páginas do livro</small>
+							<div class="invalid-feedback" th:errors="*{paginas}"></div>
 						</div>
 						
 						<div class="form-group mb-3">
 							<label class="form-label" for="categoria">Categoria:</label>
-							<input th:field="*{categoria}" class="form-control" type="text" placeholder="Categoria do livro">
+							<input th:field="*{categoria}" th:errorclass="is-invalid" class="form-control" type="text" placeholder="Categoria do livro">
 							<small>Digite a categoria a qual o livro pertence</small>
+							<div class="invalid-feedback" th:errors="*{categoria}"></div>
 						</div>
 						
 						<div class="form-group mb-3">
 							<label class="form-label" for="link">Link:</label>
-							<input th:field="*{link}" class="form-control" type="text" placeholder="Link do livro">
+							<input th:field="*{link}" th:errorclass="is-invalid" class="form-control" type="text" placeholder="Link do livro">
 							<small>Copie e cole a URL do livro aqui</small>
+							<div class="invalid-feedback" th:errors="*{link}"></div>
 						</div>
 						
 						<div class="form-group mb-3">
 							<label class="form-label" for="descricao">Descrição:</label>
-							<textarea th:field="*{descricao}" class="form-control" type="text" placeholder="Descrição do livro"></textarea>
+							<textarea th:field="*{descricao}" th:errorclass="is-invalid" class="form-control" type="text" placeholder="Descrição do livro"></textarea>
 							<small>Digite a descrição do livro</small>
+							<div class="invalid-feedback" th:errors="*{descricao}"></div>
 						</div>
 						
 						<div class="form-group mb-3">
 							<label class="form-label" for="linkImagem">Link da Imagem:</label>
-							<input th:field="*{linkImagem}" class="form-control" type="text" placeholder="Link da imagem">
+							<input th:field="*{linkImagem}" th:errorclass="is-invalid" class="form-control" type="text" placeholder="Link da imagem">
 							<small>Copie e cole a URL da imagem do livro aqui</small>
+							<div class="invalid-feedback" th:errors="*{linkImagem}"></div>
 						</div>
 						<button class="btn btn-primary btn-lg" type="submit">Cadastrar</button>
 				</form>

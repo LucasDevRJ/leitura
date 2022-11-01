@@ -119,6 +119,7 @@ public class RequisicaoNovoLivro {
 		
 		Livro livro = new Livro();
 		livro.setNome(nome);
+		livro.setPreco(preco);
 		livro.setData(data);
 		livro.setAutor(autor);
 		livro.setPaginas(paginas);

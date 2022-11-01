@@ -23,7 +23,7 @@ public class LivroController {
 	private LivroRepository livroRepository;
 
 	@GetMapping("formulario")
-	public String formulario() {
+	public String formulario(RequisicaoNovoLivro requisicao) {
 		return "livro/formulario";
 	}
 	
@@ -32,7 +32,7 @@ public class LivroController {
 		
 		if (resultado.hasErrors()) {
 			return "livro/formulario";
-		}
+		} 
 		
 		Livro livro = requisicao.toLivro();
 		

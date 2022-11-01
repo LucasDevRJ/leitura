@@ -20,28 +20,28 @@ public class RequisicaoNovoLivro {
 	@DecimalMin("1.00") 
 	private Float preco;
 	
-	@NotNull()
-	@Past
+	@NotNull(message = "Digite a data do livro, por favor!")
+	@Past(message = "Digite uma data passada, por favor!")
 	private LocalDate data;
 	
-	@NotBlank
+	@NotBlank(message = "Digite o nome do autor, por favor!")
 	private String autor;
 	
-	@NotNull
+	@NotNull(message = "Digite o número de páginas, por favor!")
 	@Min(1)
 	private Integer paginas;
 
-	@NotBlank
+	@NotBlank(message = "Digite a categoria do livro, por favor!")
 	private String categoria;
 	
-	@NotNull
+	@NotNull(message = "Digite uma descrição para o livro, por favor!")
 	@Size(min=100, max=1000)
 	private String descricao;
 	
-	@NotBlank
+	@NotBlank(message = "Copie o link do livro e cole aqui, por favor!")
 	private String link;
 	
-	@NotBlank
+	@NotBlank(message = "Copie o link da imagem do livro e cole aqui, por favor!")
 	private String linkImagem;
 	
 	public String getNome() {

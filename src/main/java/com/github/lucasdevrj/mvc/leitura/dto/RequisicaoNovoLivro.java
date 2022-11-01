@@ -2,6 +2,7 @@ package com.github.lucasdevrj.mvc.leitura.dto;
 
 import java.time.LocalDate;
 
+import javax.validation.constraints.DecimalMin;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
@@ -13,23 +14,32 @@ public class RequisicaoNovoLivro {
 
 	@NotNull
 	private String nome;
+	
 	@NotNull
+	@DecimalMin("1.00") 
 	private Float preco;
+	
 	@NotNull 
 	@Past
 	private LocalDate data;
+	
 	@NotNull
 	private String autor;
+	
 	@NotNull
 	@Min(1)
 	private Integer paginas;
+
 	@NotNull
 	private String categoria;
+	
 	@NotNull
 	@Size(min=100, max=1000)
 	private String descricao;
+	
 	@NotNull
 	private String link;
+	
 	@NotNull
 	private String linkImagem;
 	

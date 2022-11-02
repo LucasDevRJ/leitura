@@ -33,26 +33,7 @@
 	</head>
 	
 	<body>
-		<header>
-			<div class="container text-center">
-				<div class="row">
-					<div class="col-12 col-sm-12 col-md-6 text-center">
-						<h1>Leitura</h1>
-					</div>
-				
-					<div class="col-12 col-sm-12 col-md-6">
-						<nav>
-							<div class="d-flex justify-content-around py-3">
-								<a nav-link active href="/home">Sobre</a> 
-								<a nav-link active href="/home">Contato</a>
-								<a nav-link active href="/home">Livros</a> 
-								<a nav-link active href="/home">Redes Sociais</a>
-							</div>
-						</nav>
-					</div>
-				</div>
-			</div>
-		</header>
+		<header th:replace="~{base :: header}"></header>
 		
 		<div class="container my-5">
 			<div class="jumbotron mb-0 text-bg-info p-5 text-center mt-3 mb-3">

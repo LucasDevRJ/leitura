@@ -1,3 +1,36 @@
+<head th:fragement="head">
+	<meta charset="UTF-8">
+		<title>Leitura</title>
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Fasthand&display=swap" rel="stylesheet">
+		
+		<style type="text/css">
+			h1 {
+				font-family: 'Fasthand', cursive;
+			}
+			
+			.fw-semibold, .fw-normal, .btn-primary, .h2 {
+				font-family: 'Libre Baskerville', serif;
+			}
+			
+			.navbar-nav {
+				font-family: 'Noto Nastaliq Urdu', serif;
+			}
+			
+			header, footer {
+				padding: 60px;
+				background: #F0FFFF;
+			}
+			
+			a {
+				text-decoration: none;
+				color: black;
+			}
+		</style>
+</head>
+
 <header th:fragement="cabecalho">
 	<div class="container">
 		<div class="row">
@@ -23,10 +56,10 @@
 		<h1 class="mb-5">Leitura</h1>
 		<nav>
 			<div class="d-flex justify-content-center">
-				<a class="mx-4" nav-link active href="/home">Sobre</a>
-				<a class="mx-4" nav-link active href="/home">Contato</a> 
-				<a class="mx-4" nav-link active href="/home">Livros</a> 
-				<a class="mx-4" nav-link active href="/home">Redes Sociais</a>
+				<a class="mx-4" nav-link active href="/home">Sobre</a> <a
+					class="mx-4" nav-link active href="/home">Contato</a> <a
+					class="mx-4" nav-link active href="/home">Livros</a> <a
+					class="mx-4" nav-link active href="/home">Redes Sociais</a>
 			</div>
 		</nav>
 	</div>

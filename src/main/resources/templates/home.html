@@ -12,10 +12,10 @@
 		
 		<nav class="navbar navbar-expand navbar-light bg-light d-flex justify-content-between mt-1 mb-3">
 			<div class="navbar-nav">
-				<a class="nav-item nav-link active" href="/home">Todos</a> 
-				<a class="nav-item nav-link" href="/home/AGUARDANDO">Aguardando</a>
-				<a class="nav-item nav-link" href="/home/APROVADO">Aprovado</a> 
-				<a class="nav-item nav-link" href="/home/ENTREGUE">Entregue</a>
+				<a th:classappend="${status} == null ? 'active'" class="nav-item nav-link" href="/home">Todos</a> 
+				<a th:classappend="${status} == 'aguardando' ? 'active'"class="nav-item nav-link" href="/home/aguardando">Aguardando</a>
+				<a th:classappend="${status} == 'aprovado' ? 'active'"class="nav-item nav-link" href="/home/aprovado">Aprovado</a>
+				<a th:classappend="${status} == 'entregue' ? 'active'"class="nav-item nav-link" href="/home/entregue">Entregue</a>
 			</div>
 			<a href="/livro/formulario">
 				<button class="btn btn-primary">Novo</button>
@@ -33,7 +33,7 @@
 					<div class="row">
 						<div class="col-12 col-sm-12 col-md-8 mb-3">
 							<div class="fw-semibold">
-								Preço: <span class="fw-normal" th:text="${#numbers.formatDecimal(livro.preco,0,2,'COMMA')}"></span>
+								Preço: <span class="fw-normal" th:text="${#numbers.formatCurrency(livro.preco)}"></span>
 							</div>
 							<div class="fw-semibold">
 								Data: <span class="fw-normal" th:text="${livro.data}"></span>

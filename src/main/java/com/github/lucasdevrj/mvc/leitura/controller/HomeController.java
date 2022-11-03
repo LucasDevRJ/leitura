@@ -38,6 +38,7 @@ public class HomeController {
 		List<Livro> livros = livroRepository.findByStatus(StatusLivro.valueOf(status.toUpperCase()));
 		
 		model.addAttribute("livros", livros);
+		model.addAttribute("status", status);
 		
 		return "/home";
 	}

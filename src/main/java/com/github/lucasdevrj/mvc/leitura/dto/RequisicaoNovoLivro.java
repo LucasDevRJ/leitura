@@ -10,6 +10,7 @@ import javax.validation.constraints.Past;
 import javax.validation.constraints.Size;
 
 import com.github.lucasdevrj.mvc.leitura.model.Livro;
+import com.github.lucasdevrj.mvc.leitura.model.StatusLivro;
 
 public class RequisicaoNovoLivro {
 
@@ -128,6 +129,7 @@ public class RequisicaoNovoLivro {
 		livro.setLink(link);
 		livro.setDescricao(descricao);
 		livro.setLinkImagem(linkImagem);
+		livro.setStatus(StatusLivro.AGUARDANDO);
 		
 		return livro;
 	}

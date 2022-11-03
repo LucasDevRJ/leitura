@@ -38,6 +38,6 @@ public class LivroController {
 		
 		livroRepository.save(livro);
 		
-		return "livro/formulario";
+		return "redirect:/home";
 	}
 }

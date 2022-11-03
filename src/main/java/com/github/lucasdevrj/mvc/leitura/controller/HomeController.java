@@ -5,7 +5,9 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.github.lucasdevrj.mvc.leitura.model.Livro;
@@ -30,33 +32,18 @@ public class HomeController {
 		return "/home";
 	}
 	
-	@GetMapping("/aguardando") //Action que retorna a view home
-	public String aguardando(Model model) {
+	@GetMapping("/{status}") //Action que retorna a view home
+	public String status(@PathVariable("status") String status, Model model) {
 		
-		List<Livro> livros = livroRepository.findByStatus(StatusLivro.AGUARDANDO);
-		
-		model.addAttribute("livros", livros);
-		
-		return "/home";
-	}
-	
-	@GetMapping("/aprovado") //Action que retorna a view home
-	public String aprovado(Model model) {
-		
-		List<Livro> livros = livroRepository.findByStatus(StatusLivro.APROVADO);
+		List<Livro> livros = livroRepository.findByStatus(StatusLivro.valueOf(status.toUpperCase()));
 		
 		model.addAttribute("livros", livros);
 		
 		return "/home";
 	}
 	
-	@GetMapping("/entregue") //Action que retorna a view home
-	public String entregue(Model model) {
-		
-		List<Livro> livros = livroRepository.findByStatus(StatusLivro.ENTREGUE);
-		
-		model.addAttribute("livros", livros);
-		
-		return "/home";
+	@ExceptionHandler(IllegalArgumentException.class)
+	public String onError() {
+		return "redirect:/home";
 	}
 }

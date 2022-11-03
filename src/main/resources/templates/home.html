@@ -33,10 +33,10 @@
 					<div class="row">
 						<div class="col-12 col-sm-12 col-md-8 mb-3">
 							<div class="fw-semibold">
-								Preço: <span class="fw-normal" th:text="${#numbers.formatCurrency(livro.preco)}"></span>
+								Preço: <span class="fw-normal" th:text="'R$ ' + ${#numbers.formatDecimal(livro.preco,2,'POINT',2,'COMMA')}"></span>
 							</div>
 							<div class="fw-semibold">
-								Data: <span class="fw-normal" th:text="${livro.data}"></span>
+								Data: <span class="fw-normal" th:text="${#temporals.format(livro.data, 'dd/MM/yyyy')}"></span>
 							</div>
 							<div class="fw-semibold">
 								Autor(a): <span class="fw-normal" th:text="${livro.autor}"></span>

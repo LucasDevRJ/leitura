@@ -30,6 +30,14 @@ public class Livro {
 	@Enumerated(EnumType.STRING)
 	private StatusLivro status;
 	
+	public StatusLivro getStatus() {
+		return status;
+	}
+
+	public void setStatus(StatusLivro status) {
+		this.status = status;
+	}
+
 	public String getNome() {
 		return nome;
 	}

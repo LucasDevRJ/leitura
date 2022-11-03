@@ -23,7 +23,12 @@
 		</nav>
 		
 		<div class="card text-bg-light mb-4 mt-4" th:each="livro : ${livros}">
-				<div class="card-header" th:text="${livro.nome}"></div>
+				<th:block th:switch="${livro.status.name()}">
+					<div th:case="'AGUARDANDO'" class="card-header alert-warning" th:text="${livro.nome}"></div>
+					<div th:case="'APROVADO'" class="card-header alert-success" th:text="${livro.nome}"></div>
+					<div th:case="'ENTREGUE'" class="card-header alert-info" th:text="${livro.nome}"></div>
+				</th:block>
+				
 				<div class="card-body">
 					<div class="row">
 						<div class="col-12 col-sm-12 col-md-8 mb-3">

@@ -4,6 +4,8 @@ import java.time.LocalDate;
 
 import javax.annotation.Generated;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -24,6 +26,9 @@ public class Livro {
 	private String descricao;
 	private String link;
 	private String linkImagem;
+	
+	@Enumerated(EnumType.STRING)
+	private StatusLivro status;
 	
 	public String getNome() {
 		return nome;

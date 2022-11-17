@@ -1,3 +1,5 @@
+package com.github.lucasdevrj.mvc.leitura.model;
+
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -31,4 +33,44 @@ public class User {
     @ElementCollection
     @CollectionTable(name = "authorities", joinColumns = @JoinColumn(name = "username"))
     private Set<Authority> authorities = new HashSet<>();
+
+	public String getUsername() {
+		return username;
+	}
+
+	public void setUsername(String username) {
+		this.username = username;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	public Boolean getEnabled() {
+		return enabled;
+	}
+
+	public void setEnabled(Boolean enabled) {
+		this.enabled = enabled;
+	}
+
+	public List<Livro> getLivros() {
+		return livros;
+	}
+
+	public void setLivros(List<Livro> livros) {
+		this.livros = livros;
+	}
+
+	public Set<Authority> getAuthorities() {
+		return authorities;
+	}
+
+	public void setAuthorities(Set<Authority> authorities) {
+		this.authorities = authorities;
+	}
 }

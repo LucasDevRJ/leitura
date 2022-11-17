@@ -5,13 +5,26 @@
 		<header th:replace="~{base :: header}"></header>
 			
 		<div class="container my-5">
-		
-		<div class="jumbotron text-bg-info p-5 text-center mt-3">
-			<h2 class="display-4 text-light">Login</h2>
-		</div>
-		
-		<div class="card text-bg-light mb-4 mt-4" th:each="livro : ${livros}">
 			
+			<div class="jumbotron text-bg-info p-5 text-center mt-3">
+				<h2 class="display-4 text-light">Login</h2>
+			</div>
+		
+			<div class="card text-bg-light mb-4 mt-4">
+				<form th:action="@{/login}" method="post">
+		            <div class="form-group mb-3 form-group">
+						<label class="form-label" for="email">E-mail:</label>
+						<input name="email" class="form-control" type="email" placeholder="Seu e-mail">
+						<small>Digite o seu e-mail cadastrado</small>
+					</div>
+					
+					<div class="form-group mb-3 form-group">
+						<label class="form-label" for="senha">Senha:</label>
+						<input name="senha" class="form-control" type="password" placeholder="Sua senha">
+						<small>Digite a sua senha cadastrada</small>
+					</div>
+	        	</form>
+			</div>
 		</div>
 		
 		<footer th:replace="~{base :: footer}"></footer>

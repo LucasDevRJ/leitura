@@ -14,38 +14,37 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.github.lucasdevrj.mvc.leitura.model.Livro;
 import com.github.lucasdevrj.mvc.leitura.model.StatusLivro;
 import com.github.lucasdevrj.mvc.leitura.repository.LivroRepository;
-import com.github.lucasdevrj.mvc.leitura.repository.UserRepository;
 
-@Controller //Indica para o Spring que é um controller, para ele gerenciar
-@RequestMapping("/home")
-public class HomeController {
+@Controller
+@RequestMapping("usuario")
+public class UsuarioController {
 	
 	@Autowired //Para o Spring criar instância
 	private LivroRepository livroRepository;
 
-	@GetMapping //Action que retorna a view home
+	@GetMapping("livro") //Action que retorna a view home
 	public String home(Model model, Principal principal) {
 		
 		List<Livro> livros = livroRepository.findAllByUsuario(principal.getName());
 		
 		model.addAttribute("livros", livros);
 		
-		return "/home";
+		return "usuario/home";
 	}
 	
-	@GetMapping("/{status}") //Action que retorna a view home
-	public String status(@PathVariable("status") String status, Model model) {
+	@GetMapping("livro/{status}") //Action que retorna a view home
+	public String status(@PathVariable("status") String status, Model model, Principal principal) {
 		
-		List<Livro> livros = livroRepository.findAll();
+		List<Livro> livros = livroRepository.findByStatusUsuario(StatusLivro.valueOf(status.toUpperCase()), principal.getName());
 		
 		model.addAttribute("livros", livros);
 		model.addAttribute("status", status);
 		
-		return "/home";
+		return "usuario/home";
 	}
 	
 	@ExceptionHandler(IllegalArgumentException.class)
 	public String onError() {
-		return "redirect:/home";
+		return "redirect:/usuario/home";
 	}
 }

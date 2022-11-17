@@ -1,0 +1,69 @@
+<html>
+	<head th:replace="~{base :: head}"></head>
+	
+	<body>
+		<header th:replace="~{base :: header}"></header>
+			
+		<div class="container my-5">
+		
+		<div class="jumbotron text-bg-info p-5 text-center mt-3">
+			<h2 class="display-4 text-light">Livros</h2>
+		</div>
+		
+		<nav class="navbar navbar-expand navbar-light bg-light d-flex justify-content-between mt-1 mb-3">
+			<div class="navbar-nav">
+				<a th:classappend="${status} == null ? 'active'" class="nav-item nav-link" th:href="@{/usuario/livro}">Todos</a> 
+				<a th:classappend="${status} == 'aguardando' ? 'active'"class="nav-item nav-link" th:href="@{/usuario/livro/aguardando}">Aguardando</a>
+				<a th:classappend="${status} == 'aprovado' ? 'active'"class="nav-item nav-link" th:href="@{/usuario/livro/aprovado}">Aprovado</a>
+				<a th:classappend="${status} == 'entregue' ? 'active'"class="nav-item nav-link" th:href="@{/usuario/livro/entregue}">Entregue</a>
+			</div>
+			<a href="/livro/formulario">
+				<button class="btn btn-primary">Novo</button>
+			</a>
+		</nav>
+		
+		<div class="card text-bg-light mb-4 mt-4" th:each="livro : ${livros}">
+				<th:block th:switch="${livro.status.name()}">
+					<div th:case="'AGUARDANDO'" class="card-header alert alert-warning" th:text="${livro.nome}"></div>
+					<div th:case="'APROVADO'" class="card-header alert alert-success" th:text="${livro.nome}"></div>
+					<div th:case="'ENTREGUE'" class="card-header alert alert-info" th:text="${livro.nome}"></div>
+				</th:block>
+				
+				<div class="card-body">
+					<div class="row">
+						<div class="col-12 col-sm-12 col-md-8 mb-3">
+							<div class="fw-semibold">
+								Preço: <span class="fw-normal" th:text="'R$ ' + ${#numbers.formatDecimal(livro.preco,2,'POINT',2,'COMMA')}"></span>
+							</div>
+							<div class="fw-semibold">
+								Data: <span class="fw-normal" th:text="${#temporals.format(livro.data, 'dd/MM/yyyy')}"></span>
+							</div>
+							<div class="fw-semibold">
+								Autor(a): <span class="fw-normal" th:text="${livro.autor}"></span>
+							</div>
+							<div class="fw-semibold">
+								Páginas: <span class="fw-normal" th:text="${livro.paginas}"></span>
+							</div>
+							<div class="fw-semibold">
+								Categoria: <span class="fw-normal" th:text="${livro.categoria}"></span>
+							</div>
+							<div class="fw-semibold">
+								Descrição: <span class="fw-normal" th:text="${livro.descricao}"></span>
+							</div>
+							<div class="fw-semibold">
+								Link: <span class="fw-normal" th:text="${livro.link}"> </span>
+							</div>
+						</div>
+						<div class="col-12 col-sm-12 col-md-4">
+							<div>
+								<img class="img-thumbnail" th:src="${livro.linkImagem}" src="">
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<footer th:replace="~{base :: footer}"></footer>
+	</body>
+</html>

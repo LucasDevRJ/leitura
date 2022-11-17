@@ -29,12 +29,13 @@ public class ConfiguracaoSegurancaWeb extends WebSecurityConfigurerAdapter { //C
 			.and()
 			.formLogin((form) -> form
 				.loginPage("/login")
-				.defaultSuccessUrl("/home", true)
+				.defaultSuccessUrl("/usuario/livro", true)
 				.permitAll()
 			)
 			.logout(logout -> 
 				logout.logoutUrl("/logout")
-			);
+			)
+			.csrf().disable();
 	}
 	
 	@Override

@@ -15,7 +15,10 @@ public interface LivroRepository extends JpaRepository<Livro, Integer>{
 
 	List<Livro> findByStatus(StatusLivro status);
 
-	@Query("SELECT l FROM Livro l JOIN l.user l WHERE l.username = :username")
+	@Query("SELECT l FROM Livro l JOIN l.user u WHERE u.username = :username")
 	List<Livro> findAllByUsuario(@Param("username") String username);
+
+	@Query("SELECT l FROM Livro l JOIN l.user u WHERE u.username = :username AND l.status = :status")
+	List<Livro> findByStatusUsuario(@Param("status") StatusLivro status, @Param("username") String username);
 
 }

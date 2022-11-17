@@ -12,9 +12,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.github.lucasdevrj.mvc.leitura.dto.RequisicaoNovoLivro;
 import com.github.lucasdevrj.mvc.leitura.model.Livro;
+import com.github.lucasdevrj.mvc.leitura.model.User;
 import com.github.lucasdevrj.mvc.leitura.repository.LivroRepository;
-
-import net.bytebuddy.implementation.bind.MethodDelegationBinder.BindingResolver;
+import com.github.lucasdevrj.mvc.leitura.repository.UserRepository;
 
 @Controller
 @RequestMapping("livro")
@@ -22,6 +22,9 @@ public class LivroController {
 	
 	@Autowired //pedir para o Spring injetar depedência
 	private LivroRepository livroRepository;
+	
+	@Autowired
+	private UserRepository userRepository;
 
 	@GetMapping("formulario")
 	public String formulario(RequisicaoNovoLivro requisicao) {
@@ -36,9 +39,10 @@ public class LivroController {
 		} 
 		
 		String username = SecurityContextHolder.getContext().getAuthentication().getName();
+		User user = this.userRepository.findByUsername(username);
 		
 		Livro livro = requisicao.toLivro();
-		livro.setUser(username);
+		livro.setUser(user);
 		
 		livroRepository.save(livro);
 		

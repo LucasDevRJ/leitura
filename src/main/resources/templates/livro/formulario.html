@@ -11,7 +11,7 @@
 			
 			<div class="card">
 			
-				<form th:object="${requisicaoNovoLivro}" class="card-body" action="/livro/novo" method="POST">
+				<form th:action="@{/livro/novo}" th:object="${requisicaoNovoLivro}" class="card-body" method="POST">
 			
 						<div class="form-group mb-3">
 							<label class="form-label" for="nome">Nome:</label>

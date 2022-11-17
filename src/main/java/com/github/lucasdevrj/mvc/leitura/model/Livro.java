@@ -2,8 +2,6 @@ package com.github.lucasdevrj.mvc.leitura.model;
 
 import java.time.LocalDate;
 
-import javax.annotation.Generated;
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
@@ -32,6 +30,9 @@ public class Livro {
 	
 	@Enumerated(EnumType.STRING)
 	private StatusLivro status;
+	
+	@ManyToOne(fetch = FetchType.LAZY)
+	private User user;
 	
 	public Integer getId() {
 		return id;

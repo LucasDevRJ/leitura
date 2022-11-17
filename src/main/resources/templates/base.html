@@ -46,7 +46,9 @@
 						<a nav-link active href="/home">Contato</a> 
 						<a nav-link active href="/home">Livros</a>
 						<a nav-link active href="/home">Redes Sociais</a>
-						<a nav-link active href="/home" >Entrar</a>
+						<a nav-link active sec:authorize="!isAuthenticated()" href="/login">Entrar</a>
+						<a onclick="document.querySelector('#form-login').submit()" nav-link active sec:authorize="isAuthenticated()" href="#">Sair</a>
+						<form id="form-login" th:action="@{/logout}" method="post"></form>
 					</div>
 				</nav>
 			</div>
@@ -59,10 +61,10 @@
 		<h1 class="mb-5">Leitura</h1>
 		<nav>
 			<div class="d-flex justify-content-center">
-				<a class="mx-4" nav-link active href="/home">Sobre</a> <a
-					class="mx-4" nav-link active href="/home">Contato</a> <a
-					class="mx-4" nav-link active href="/home">Livros</a> <a
-					class="mx-4" nav-link active href="/home">Redes Sociais</a>
+				<a class="mx-4" nav-link active href="/home">Sobre</a> 
+				<a class="mx-4" nav-link active href="/home">Contato</a> 
+				<a class="mx-4" nav-link active href="/home">Livros</a> 
+				<a class="mx-4" nav-link active href="/home">Redes Sociais</a> 
 			</div>
 		</nav>
 	</div>

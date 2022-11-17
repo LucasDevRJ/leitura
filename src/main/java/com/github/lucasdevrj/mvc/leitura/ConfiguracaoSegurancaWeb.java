@@ -22,6 +22,9 @@ public class ConfiguracaoSegurancaWeb extends WebSecurityConfigurerAdapter { //C
 			.formLogin((form) -> form
 				.loginPage("/login")
 				.permitAll()
+			)
+			.logout(logout -> 
+				logout.logoutUrl("/logout")
 			);
 	}
 	

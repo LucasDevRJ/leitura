@@ -2,6 +2,7 @@ package com.github.lucasdevrj.mvc.leitura.repository;
 
 import java.util.List;
 
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -15,6 +16,7 @@ import com.github.lucasdevrj.mvc.leitura.model.StatusLivro;
 @Repository //Spring criará a dependência toda vez que for necessário
 public interface LivroRepository extends JpaRepository<Livro, Integer>{
 
+	@Cacheable("books")
 	List<Livro> findByStatus(StatusLivro status, Pageable sort);
 
 	@Query("SELECT l FROM Livro l JOIN l.user u WHERE u.username = :username")

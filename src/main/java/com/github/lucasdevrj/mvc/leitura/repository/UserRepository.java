@@ -9,13 +9,11 @@ import org.springframework.stereotype.Repository;
 
 import com.github.lucasdevrj.mvc.leitura.model.Livro;
 import com.github.lucasdevrj.mvc.leitura.model.StatusLivro;
+import com.github.lucasdevrj.mvc.leitura.model.User;
 
 @Repository //Spring criará a dependência toda vez que for necessário
-public interface LivroRepository extends JpaRepository<Livro, Integer>{
+public interface UserRepository extends JpaRepository<User, String>{
 
-	List<Livro> findByStatus(StatusLivro status);
-
-	@Query("SELECT l FROM Livro l JOIN l.user l WHERE l.username = :username")
-	List<Livro> findAllByUsuario(@Param("username") String username);
+	User findByUsername(String username);
 
 }

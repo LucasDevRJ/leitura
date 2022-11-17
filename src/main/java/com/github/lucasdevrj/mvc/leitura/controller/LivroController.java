@@ -3,6 +3,7 @@ package com.github.lucasdevrj.mvc.leitura.controller;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -34,7 +35,10 @@ public class LivroController {
 			return "livro/formulario";
 		} 
 		
+		String username = SecurityContextHolder.getContext().getAuthentication().getName();
+		
 		Livro livro = requisicao.toLivro();
+		livro.setUser(username);
 		
 		livroRepository.save(livro);
 		

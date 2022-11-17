@@ -1,5 +1,6 @@
 package com.github.lucasdevrj.mvc.leitura.controller;
 
+import java.security.Principal;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,9 +24,9 @@ public class HomeController {
 	
 
 	@GetMapping //Action que retorna a view home
-	public String home(Model model) {
+	public String home(Model model, Principal principal) {
 		
-		List<Livro> livros = livroRepository.findAll();
+		List<Livro> livros = livroRepository.findAllByUsuario(principal.getName());
 		
 		model.addAttribute("livros", livros);
 		

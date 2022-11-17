@@ -42,10 +42,8 @@
 				
 				<nav>
 					<div class="d-flex justify-content-around py-3">
-						<a nav-link active href="/home">Sobre</a> 
-						<a nav-link active href="/home">Contato</a> 
-						<a nav-link active href="/home">Livros</a>
-						<a nav-link active href="/home">Redes Sociais</a>
+						<a nav-link active th:href="@{/home}">Últimos Pedidos</a> 
+						<a nav-link active th:href="@{/usuario/livro}">Meus Pedidos</a> 
 						<a nav-link active sec:authorize="!isAuthenticated()" href="/login">Entrar</a>
 						<a onclick="document.querySelector('#form-login').submit()" nav-link active sec:authorize="isAuthenticated()" href="#">Sair</a>
 						<form id="form-login" th:action="@{/logout}" method="post"></form>

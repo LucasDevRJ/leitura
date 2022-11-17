@@ -26,26 +26,10 @@ public class HomeController {
 	@GetMapping //Action que retorna a view home
 	public String home(Model model, Principal principal) {
 		
-		List<Livro> livros = livroRepository.findAllByUsuario(principal.getName());
+		List<Livro> livros = livroRepository.findByStatus(StatusLivro.ENTREGUE);
 		
 		model.addAttribute("livros", livros);
 		
-		return "/home";
-	}
-	
-	@GetMapping("/{status}") //Action que retorna a view home
-	public String status(@PathVariable("status") String status, Model model) {
-		
-		List<Livro> livros = livroRepository.findAll();
-		
-		model.addAttribute("livros", livros);
-		model.addAttribute("status", status);
-		
-		return "/home";
-	}
-	
-	@ExceptionHandler(IllegalArgumentException.class)
-	public String onError() {
-		return "redirect:/home";
+		return "home";
 	}
 }

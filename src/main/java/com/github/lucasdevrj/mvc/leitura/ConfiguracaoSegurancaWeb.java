@@ -25,6 +25,8 @@ public class ConfiguracaoSegurancaWeb extends WebSecurityConfigurerAdapter { //C
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		http.authorizeHttpRequests()
+			.antMatchers("/home/**")
+			.permitAll()
 			.anyRequest().authenticated()
 			.and()
 			.formLogin((form) -> form
@@ -32,8 +34,11 @@ public class ConfiguracaoSegurancaWeb extends WebSecurityConfigurerAdapter { //C
 				.defaultSuccessUrl("/usuario/livro", true)
 				.permitAll()
 			)
-			.logout(logout -> 
+			.logout(logout -> {
 				logout.logoutUrl("/logout")
+				.logoutSuccessUrl("/home");
+			}
+				
 			)
 			.csrf().disable();
 	}

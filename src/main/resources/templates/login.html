@@ -11,18 +11,20 @@
 			</div>
 		
 			<div class="card text-bg-light mb-4 mt-4">
-				<form th:action="@{/login}" method="post">
+				<form th:action="@{/login}" method="post" class="card-body">
 		            <div class="form-group mb-3 form-group">
-						<label class="form-label" for="email">E-mail:</label>
-						<input name="email" class="form-control" type="email" placeholder="Seu e-mail">
+						<label class="form-label" for="username">E-mail:</label>
+						<input name="username" class="form-control" type="text" placeholder="Seu e-mail">
 						<small>Digite o seu e-mail cadastrado</small>
 					</div>
 					
 					<div class="form-group mb-3 form-group">
-						<label class="form-label" for="senha">Senha:</label>
-						<input name="senha" class="form-control" type="password" placeholder="Sua senha">
+						<label class="form-label" for="password">Senha:</label>
+						<input name="password" class="form-control" type="password" placeholder="Sua senha">
 						<small>Digite a sua senha cadastrada</small>
 					</div>
+					<button class="btn btn-primary btn-lg mb-2" type="submit">Entrar</button>
+					<p>Ainda não possui cadastro? <a class="text-primary"  href="/criarConta">Criar conta</a></p>
 	        	</form>
 			</div>
 		</div>

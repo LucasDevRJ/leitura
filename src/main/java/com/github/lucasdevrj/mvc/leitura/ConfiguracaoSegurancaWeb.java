@@ -31,7 +31,7 @@ public class ConfiguracaoSegurancaWeb extends WebSecurityConfigurerAdapter { //C
 		UserDetails user =
 			 User.withDefaultPasswordEncoder()
 				.username("lucas")
-				.password("abr33")
+				.password("lucas")
 				.roles("ADM")
 				.build();
 

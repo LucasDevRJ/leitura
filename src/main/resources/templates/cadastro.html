@@ -1,0 +1,57 @@
+<html>
+	<head th:replace="~{base :: head}"></head>
+	
+	<body>
+		<header th:replace="~{base :: header}"></header>
+			
+		<div class="container my-5">
+			
+			<div class="jumbotron text-bg-info p-5 text-center mt-3">
+				<h2 class="display-4 text-light">Login</h2>
+			</div>
+		
+			<div class="card text-bg-light mb-4 mt-4">
+				<form th:action="@{/login}" method="post">
+					
+					<div class="form-group mb-3">
+						<label class="form-label" for="nome">Nome:</label>
+						<input th:field="*{nome}" th:errorclass="is-invalid" class="form-control" type="text" placeholder="Seu nome">
+						<small>Digite o seu primeiro nome</small>
+						<div class="invalid-feedback" th:errors="*{nome}"></div>
+					</div>
+					
+					<div class="form-group mb-3">
+						<label class="form-label" for="nome">Sobrenome:</label>
+						<input th:field="*{sobrenome}" th:errorclass="is-invalid" class="form-control" type="text" placeholder="Seu sobrenome">
+						<small>Digite o seu sobrenome</small>
+						<div class="invalid-feedback" th:errors="*{sobrenome}"></div>
+					</div>
+					
+					<div class="form-group mb-3">
+						<label class="form-label" for="data">Data de Nascimento:</label>
+						<input th:field="*{dataNascimento}" th:errorclass="is-invalid" class="form-control" type="text" placeholder="Sua data de nascimento">
+						<small>Digite a sua data de nascimento</small>
+						<div class="invalid-feedback" th:errors="*{dataNascimento}"></div>
+					</div>
+					
+					<div class="form-group mb-3">
+						<label class="form-label" for="email">E-mail:</label>
+						<input th:field="*{email}" th:errorclass="is-invalid" class="form-control" type="email" placeholder="Seu e-mail">
+						<small>Digite o seu primeiro nome</small>
+						<div class="invalid-feedback" th:errors="*{email}"></div>
+					</div>
+					
+					<div class="form-group mb-3">
+						<label class="form-label" for="email">Senha:</label>
+						<input th:field="*{senha}" th:errorclass="is-invalid" class="form-control" type="password">
+						<small>Cadastre uma senha</small>
+						<div class="invalid-feedback" th:errors="*{senha}"></div>
+					</div>
+					
+	        	</form>
+			</div>
+		</div>
+		
+		<footer th:replace="~{base :: footer}"></footer>
+	</body>
+</html>

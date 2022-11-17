@@ -3,12 +3,15 @@ package com.github.lucasdevrj.mvc.leitura.model;
 import java.time.LocalDate;
 
 import javax.annotation.Generated;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Livro {
@@ -29,6 +32,14 @@ public class Livro {
 	
 	@Enumerated(EnumType.STRING)
 	private StatusLivro status;
+	
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
 	
 	public StatusLivro getStatus() {
 		return status;

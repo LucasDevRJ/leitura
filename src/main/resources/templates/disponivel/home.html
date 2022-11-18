@@ -1,46 +1,48 @@
 <html>
 	<head th:replace="~{base :: head}"></head>
 	
-	<body onload="onLoad()">
+	<body>
 		<header th:replace="~{base :: header}"></header>
 			
-		<div class="container my-5" id="compras">
+		<div class="container my-5">
 		
 		<div class="jumbotron text-bg-info p-5 text-center mt-3">
-			<h2 class="display-4 text-light">Últimos Pedidos</h2>
+			<h2 class="display-4 text-light">Livros Disponíveis</h2>
 		</div>
 		
-		<div class="card text-bg-light mb-4 mt-4" v-for="livro in livros">
-				<div class="card-header alert alert-info" >{{livro.nome}}</div>
+		<div class="card text-bg-light mb-4 mt-4" th:each="livro : ${livros}">
+				<th:block th:switch="${livro.status.name()}">
+					<div th:case="'APROVADO'" class="card-header alert alert-success" th:text="${livro.nome}"></div>
+				</th:block>
 				
 				<div class="card-body">
 					<div class="row">
 						<div class="col-12 col-sm-12 col-md-8 mb-3">
 							<div class="fw-semibold">
-								Preço: <span class="fw-normal">{{livro.preco}}</span>
+								Preço: <span class="fw-normal" th:text="'R$ ' + ${#numbers.formatDecimal(livro.preco,2,'POINT',2,'COMMA')}"></span>
 							</div>
 							<div class="fw-semibold">
-								Data: <span class="fw-normal">{{livro.data}}</span>
+								Data: <span class="fw-normal" th:text="${#temporals.format(livro.data, 'dd/MM/yyyy')}"></span>
 							</div>
 							<div class="fw-semibold">
-								Autor(a): <span class="fw-normal">{{livro.autor}}</span>
+								Autor(a): <span class="fw-normal" th:text="${livro.autor}"></span>
 							</div>
 							<div class="fw-semibold">
-								Páginas: <span class="fw-normal">{{livro.paginas}}</span>
+								Páginas: <span class="fw-normal" th:text="${livro.paginas}"></span>
 							</div>
 							<div class="fw-semibold">
-								Categoria: <span class="fw-normal">{{livro.categoria}}</span>
+								Categoria: <span class="fw-normal" th:text="${livro.categoria}"></span>
 							</div>
 							<div class="fw-semibold">
-								Descrição: <span class="fw-normal">{{livro.descricao}}</span>
+								Descrição: <span class="fw-normal" th:text="${livro.descricao}"></span>
 							</div>
 							<div class="fw-semibold">
-								Link: <span class="fw-normal" v-bind:href="livro.link"></span>
+								Link: <span class="fw-normal" th:text="${livro.link}"> </span>
 							</div>
 						</div>
 						<div class="col-12 col-sm-12 col-md-4">
 							<div>
-								<img class="img-thumbnail" v-bind:href="livro.linkImagem">
+								<img class="img-thumbnail" th:src="${livro.linkImagem}" src="">
 							</div>
 						</div>
 					</div>
@@ -48,18 +50,6 @@
 			</div>
 		</div>
 		
-		<script>
-			function onLoad() {
-				var app = new Vue({
-					el : '#compras',
-					data : {
-						compras : []
-					}
-				});
-			}
-		</script>
-		
-		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+		<footer th:replace="~{base :: footer}"></footer>
 	</body>
-	<footer th:replace="~{base :: footer}"></footer>
 </html>

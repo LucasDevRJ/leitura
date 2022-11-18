@@ -24,6 +24,6 @@ public class LivrosRest {
 	public List<Livro> getLivros() {
 		Sort sort = Sort.by("id").descending();
 		PageRequest paginacao = PageRequest.of(0, 10, sort);
-		return this.livroRepository.findByStatus(StatusLivro.APROVADO, paginacao);
+		return livroRepository.findByStatus(StatusLivro.APROVADO, paginacao);
 	}
 }

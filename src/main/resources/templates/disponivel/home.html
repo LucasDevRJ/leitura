@@ -10,37 +10,37 @@
 			<h2 class="display-4 text-light">Últimos Pedidos</h2>
 		</div>
 		
-		<div class="card text-bg-light mb-4 mt-4" th:each="livro : ${livros}">
-				<div class="card-header alert alert-info" th:text="${livro.nome}"></div>
+		<div class="card text-bg-light mb-4 mt-4" v-for="livro in livros">
+				<div class="card-header alert alert-info" >{{livro.nome}}</div>
 				
 				<div class="card-body">
 					<div class="row">
 						<div class="col-12 col-sm-12 col-md-8 mb-3">
 							<div class="fw-semibold">
-								Preço: <span class="fw-normal" th:text="'R$ ' + ${#numbers.formatDecimal(livro.preco,2,'POINT',2,'COMMA')}"></span>
+								Preço: <span class="fw-normal">{{livro.preco}}</span>
 							</div>
 							<div class="fw-semibold">
-								Data: <span class="fw-normal" th:text="${#temporals.format(livro.data, 'dd/MM/yyyy')}"></span>
+								Data: <span class="fw-normal">{{livro.data}}</span>
 							</div>
 							<div class="fw-semibold">
-								Autor(a): <span class="fw-normal" th:text="${livro.autor}"></span>
+								Autor(a): <span class="fw-normal">{{livro.autor}}</span>
 							</div>
 							<div class="fw-semibold">
-								Páginas: <span class="fw-normal" th:text="${livro.paginas}"></span>
+								Páginas: <span class="fw-normal">{{livro.paginas}}</span>
 							</div>
 							<div class="fw-semibold">
-								Categoria: <span class="fw-normal" th:text="${livro.categoria}"></span>
+								Categoria: <span class="fw-normal">{{livro.categoria}}</span>
 							</div>
 							<div class="fw-semibold">
-								Descrição: <span class="fw-normal" th:text="${livro.descricao}"></span>
+								Descrição: <span class="fw-normal">{{livro.descricao}}</span>
 							</div>
 							<div class="fw-semibold">
-								Link: <span class="fw-normal"><a th:text="${livro.link}"></a></span>
+								Link: <span class="fw-normal" v-bind:href="livro.link"></span>
 							</div>
 						</div>
 						<div class="col-12 col-sm-12 col-md-4">
 							<div>
-								<img class="img-thumbnail" th:src="${livro.linkImagem}" src="">
+								<img class="img-thumbnail" v-bind:href="livro.linkImagem">
 							</div>
 						</div>
 					</div>

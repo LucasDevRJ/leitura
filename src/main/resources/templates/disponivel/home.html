@@ -1,10 +1,10 @@
 <html>
 	<head th:replace="~{base :: head}"></head>
 	
-	<body>
+	<body onload="onLoad()">
 		<header th:replace="~{base :: header}"></header>
 			
-		<div class="container my-5">
+		<div class="container my-5" id="compras">
 		
 		<div class="jumbotron text-bg-info p-5 text-center mt-3">
 			<h2 class="display-4 text-light">Últimos Pedidos</h2>
@@ -48,6 +48,18 @@
 			</div>
 		</div>
 		
-		<footer th:replace="~{base :: footer}"></footer>
+		<script>
+			function onLoad() {
+				var app = new Vue({
+					el : '#compras',
+					data : {
+						compras : []
+					}
+				});
+			}
+		</script>
+		
+		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 	</body>
+	<footer th:replace="~{base :: footer}"></footer>
 </html>
